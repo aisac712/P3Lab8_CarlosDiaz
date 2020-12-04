@@ -35,6 +35,14 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/Alfil.o \
+	${OBJECTDIR}/Caballo.o \
+	${OBJECTDIR}/Dama.o \
+	${OBJECTDIR}/Partida.o \
+	${OBJECTDIR}/Peon.o \
+	${OBJECTDIR}/Pieza.o \
+	${OBJECTDIR}/Rey.o \
+	${OBJECTDIR}/Torre.o \
 	${OBJECTDIR}/main.o
 
 
@@ -61,6 +69,46 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/p3lab8_carlosdiaz.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/p3lab8_carlosdiaz ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/Alfil.o: Alfil.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Alfil.o Alfil.cpp
+
+${OBJECTDIR}/Caballo.o: Caballo.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Caballo.o Caballo.cpp
+
+${OBJECTDIR}/Dama.o: Dama.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Dama.o Dama.cpp
+
+${OBJECTDIR}/Partida.o: Partida.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Partida.o Partida.cpp
+
+${OBJECTDIR}/Peon.o: Peon.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Peon.o Peon.cpp
+
+${OBJECTDIR}/Pieza.o: Pieza.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Pieza.o Pieza.cpp
+
+${OBJECTDIR}/Rey.o: Rey.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Rey.o Rey.cpp
+
+${OBJECTDIR}/Torre.o: Torre.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Torre.o Torre.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}

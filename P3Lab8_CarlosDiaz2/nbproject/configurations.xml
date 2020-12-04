@@ -4,16 +4,15 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>Alfil.h</itemPath>
-      <itemPath>Caballo.h</itemPath>
-      <itemPath>Dama.h</itemPath>
-      <itemPath>Partida.h</itemPath>
-      <itemPath>Peon.h</itemPath>
-      <itemPath>Pieza.h</itemPath>
+      <itemPath>Alfil.hpp</itemPath>
+      <itemPath>Caballo.hpp</itemPath>
+      <itemPath>Dama.hpp</itemPath>
+      <itemPath>Partida.hpp</itemPath>
+      <itemPath>Peon.hpp</itemPath>
       <itemPath>Pieza.hpp</itemPath>
       <itemPath>Rey.h</itemPath>
       <itemPath>Rey.hpp</itemPath>
-      <itemPath>Torre.h</itemPath>
+      <itemPath>Torre.hpp</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -22,14 +21,6 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>Alfil.cpp</itemPath>
-      <itemPath>Caballo.cpp</itemPath>
-      <itemPath>Dama.cpp</itemPath>
-      <itemPath>Partida.cpp</itemPath>
-      <itemPath>Peon.cpp</itemPath>
-      <itemPath>Pieza.cpp</itemPath>
-      <itemPath>Rey.cpp</itemPath>
-      <itemPath>Torre.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -54,41 +45,23 @@
       </toolsSet>
       <compileType>
       </compileType>
-      <item path="Alfil.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Alfil.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Alfil.h" ex="false" tool="3" flavor2="0">
+      <item path="Caballo.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Caballo.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Dama.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Caballo.h" ex="false" tool="3" flavor2="0">
+      <item path="Partida.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Dama.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Dama.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Partida.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Partida.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Peon.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Peon.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Pieza.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Pieza.h" ex="false" tool="3" flavor2="0">
+      <item path="Peon.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Pieza.hpp" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Rey.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Rey.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Rey.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Torre.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Torre.h" ex="false" tool="3" flavor2="0">
+      <item path="Torre.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -113,41 +86,23 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="Alfil.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Alfil.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Alfil.h" ex="false" tool="3" flavor2="0">
+      <item path="Caballo.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Caballo.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Dama.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Caballo.h" ex="false" tool="3" flavor2="0">
+      <item path="Partida.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Dama.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Dama.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Partida.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Partida.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Peon.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Peon.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Pieza.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Pieza.h" ex="false" tool="3" flavor2="0">
+      <item path="Peon.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Pieza.hpp" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Rey.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Rey.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Rey.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Torre.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Torre.h" ex="false" tool="3" flavor2="0">
+      <item path="Torre.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
