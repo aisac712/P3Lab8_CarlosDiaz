@@ -131,7 +131,7 @@ int main(int argc, char** argv) {
                         tablero[x][y] = nombreAuxiliar.at(0);
                     }
                     
-                    cout << "JUGADOR 1" << endl;
+                    cout << "JUGADOR 2" << endl;
                     cout << "¿Cuál pieza desea mover?  1. Rey   2. " << nombreAuxiliar<< " : ";
                     cin >> nPieza;
                     cout << "Ingresa coordenadas de movimiento: " << endl;

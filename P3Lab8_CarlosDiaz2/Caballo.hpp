@@ -27,6 +27,10 @@ public:
         if(fabs(i-x)==2 && fabs(j-y)==1){
             permitido=true;
         }
+        if(fabs(j-y)==2 && fabs(i-x)==1){
+            permitido=true;
+        }
+        
         return permitido;
     }
 private:
