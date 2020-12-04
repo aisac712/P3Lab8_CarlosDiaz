@@ -130,6 +130,39 @@ int main(int argc, char** argv) {
                         tablero[i][j] = '.';
                         tablero[x][y] = nombreAuxiliar.at(0);
                     }
+                    
+                    cout << "JUGADOR 1" << endl;
+                    cout << "¿Cuál pieza desea mover?  1. Rey   2. " << nombreAuxiliar<< " : ";
+                    cin >> nPieza;
+                    cout << "Ingresa coordenadas de movimiento: " << endl;
+                    cin >> coordenada;
+                    while(!validarEntrada(coordenada)){
+                        cout << "Coordenada no válida, ingrese otra";
+                        cin >> coordenada;
+                    }
+                    int i = -(coordenada.at(2)-48-8);                                     //posInicial
+                    int j = coordenada.at(1)-65;
+
+                    int x = -(coordenada.at(5)-48-8);                                     //posFinal
+                    int y = coordenada.at(4)-65;
+                        
+                    if(nPieza==1){
+                        while(!rey->validarMovimiento(coordenada, tablero)){
+                            cout << "El " << "Rey" << " no puede hacer ese movimiento. Ingresa otra coordenada: " << endl;
+                            cin >> coordenada;
+                        }
+                        tablero[i][j] = '.';
+                        tablero[x][y] = 'r';
+                    } else if(nPieza==2){
+                        while(!auxiliar->validarMovimiento(coordenada, tablero)){
+                            cout << "El " << nombreAuxiliar << " no puede hacer ese movimiento. Ingresa otra coordenada: " << endl;
+                            cin >> coordenada;
+                        }
+                        tablero[i][j] = '.';
+                        tablero[x][y] = nombreAuxiliar.at(0);
+                    }
+                    cout << "¿Desea seguir?: ";
+                    cin >> seguir;
                 }
                 
             } break;
