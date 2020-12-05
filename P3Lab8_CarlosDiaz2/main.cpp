@@ -2,6 +2,9 @@
 #include <iostream>
 #include <vector>           //librería estándar de los vectores
 #include <string>           //librería estándar de las cadenas
+#include <bits/stdc++.h>            //lib de tokenizer tipo java
+#include <fstream>
+using std::ifstream;
 
 #include "Partida.hpp"
 #include "Pieza.hpp"
@@ -26,6 +29,7 @@ using namespace std;
 char** crearTablero(int);
 void imprimirTablero(int, char**);
 bool validarEntrada(string);
+void cargarPartidas(vector<Partida*>&);
 
 int main(int argc, char** argv) {
     int op = 0;
@@ -33,7 +37,7 @@ int main(int argc, char** argv) {
     
     
     while(op!=3){
-        cout << "   FEISBU CRÍPTICO" << endl;
+        cout << "   GAMBITO DE DAMA" << endl;
         cout << "1. Jugar Partida" << endl;
         cout << "2. Ver Partida" << endl;
         cout << "3. Salir" << endl;
@@ -142,7 +146,7 @@ int main(int argc, char** argv) {
                         tablero[x][y] = nombreAuxiliar.at(0);
                         imprimirTablero(8, tablero);
                     }
-                    
+                    partidaTemp->anadirMovimiento(coordenada);                  //añadir movimiento al registro de la partida
                     cout << "JUGADOR 2" << endl;
                     imprimirTablero(8, tablero);
                     cout << "¿Cuál pieza desea mover?  1. Rey   2. " << nombreAuxiliar<< " : ";
@@ -183,16 +187,30 @@ int main(int argc, char** argv) {
                         tablero[x][y] = nombreAuxiliar.at(0);
                         imprimirTablero(8, tablero);
                     }
+                    partidaTemp->anadirMovimiento(coordenada);
                     cout << "¿Desea seguir? (1. Sí,  0. No): ";
                     cin >> seguir;
                 }
                 
+                pRegistradas.push_back(partidaTemp);
+                partidaTemp->guardarPartida();
             } break;
             case 2: {
+                cargarPartidas(pRegistradas);
                 
+                int partidaSelec=0;
+                cout << "SELECCIONA LA PARTIDA A EMULAR" << endl;
+                for(int i=0; i<pRegistradas.size(); i++){
+                    cout << i << ".- " << pRegistradas[i]->getNombrePartida() << endl;
+                }
+                cout << "Elegi: ";
+                cin >> partidaSelec;
+                
+                cout << "En esa partida se jugó con " << pRegistradas[partidaSelec]->getAuxiliar() << " y los movs fueron: " << pRegistradas[partidaSelec]->getMovimientos() << endl;
+                cout << "" << endl;
             } break;
             case 3: {
-                
+                cout << "bais" << endl;
             } break;
         }
     }
@@ -244,4 +262,37 @@ bool validarEntrada(string coor){
         }
     }
     return valido;
+}
+
+void cargarPartidas(vector<Partida*>& pRegistradas){
+    pRegistradas.clear();
+    ifstream lectura;
+    int bandera=0;
+    Partida* partidaTemp = new Partida();
+    lectura.open("bitacoraPartidas.txt");
+    while (!lectura.eof()) {
+        
+        string linea;
+        lectura >> linea;
+        //cout << linea << bandera << endl;
+        if(bandera==0){
+            partidaTemp->setNombrePartida(linea);
+            bandera++;
+        } else if(bandera==1){
+            partidaTemp->setAuxiliar(linea);
+            bandera++;
+        } else if(bandera==2){
+            //cout << linea << endl;
+            for (auto i = strtok(&linea[0], ";"); i != NULL; i = strtok(NULL, ";")) {
+                partidaTemp->anadirMovimiento(i);
+                //cout << i << endl;
+            }
+            
+            pRegistradas.push_back(partidaTemp);
+            partidaTemp = new Partida();
+            bandera=0;                                                          //se reinicia para q las lineas se asignen al campo q corresponden en realidad
+        }
+        
+    }
+    lectura.close();
 }

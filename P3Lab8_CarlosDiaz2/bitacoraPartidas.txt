@@ -1,0 +1,6 @@
+JaqueMate-AlPastor
+Caballo
+[B1,C3];[E8,G6];
+Probando-Gorditos
+Peón
+[E2,E3];[E8,H8];[E1,C1];[H8,F6];
