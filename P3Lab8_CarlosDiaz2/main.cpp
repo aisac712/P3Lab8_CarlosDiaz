@@ -48,8 +48,9 @@ int main(int argc, char** argv) {
                 int nPieza=1;
                 string nombre="";
                 string nombreAuxiliar="";
-                crearTablero(8);
-                cout << "¿Cuál es el nombre de la partida?";
+                tablero = crearTablero(8);
+                imprimirTablero(8, tablero);
+                cout << "¿Cuál es el nombre de la partida?: ";
                 cin >> nombre;
                 
                 cout << "¿Con cuál pieza querés practicar?: " << endl;
@@ -101,9 +102,10 @@ int main(int argc, char** argv) {
                     nPieza=0;
                     string coordenada;
                     cout << "JUGADOR 1" << endl;
+                    imprimirTablero(8, tablero);                                                                        //USAR COORDENADAS EN MAYúSCULA
                     cout << "¿Cuál pieza desea mover?  1. Rey   2. " << nombreAuxiliar<< " : ";
                     cin >> nPieza;
-                    cout << "Ingresa coordenadas de movimiento: " << endl;
+                    cout << "Ingresa coordenadas de movimiento (mayusc): " << endl;
                     cin >> coordenada;
                     while(!validarEntrada(coordenada)){
                         cout << "Coordenada no válida, ingrese otra";
@@ -119,49 +121,69 @@ int main(int argc, char** argv) {
                         while(!rey->validarMovimiento(coordenada, tablero)){
                             cout << "El " << "Rey" << " no puede hacer ese movimiento. Ingresa otra coordenada: " << endl;
                             cin >> coordenada;
+                            i = -(coordenada.at(2)-48-8);                                     //posInicial
+                            j = coordenada.at(1)-65;
+                            x = -(coordenada.at(5)-48-8);                                     //posFinal
+                            y = coordenada.at(4)-65;
                         }
                         tablero[i][j] = '.';
                         tablero[x][y] = 'r';
+                        imprimirTablero(8, tablero);
                     } else if(nPieza==2){
                         while(!auxiliar->validarMovimiento(coordenada, tablero)){
                             cout << "El " << nombreAuxiliar << " no puede hacer ese movimiento. Ingresa otra coordenada: " << endl;
                             cin >> coordenada;
+                            i = -(coordenada.at(2)-48-8);                                     //posInicial
+                            j = coordenada.at(1)-65;
+                            x = -(coordenada.at(5)-48-8);                                     //posFinal
+                            y = coordenada.at(4)-65;
                         }
                         tablero[i][j] = '.';
                         tablero[x][y] = nombreAuxiliar.at(0);
+                        imprimirTablero(8, tablero);
                     }
                     
                     cout << "JUGADOR 2" << endl;
+                    imprimirTablero(8, tablero);
                     cout << "¿Cuál pieza desea mover?  1. Rey   2. " << nombreAuxiliar<< " : ";
                     cin >> nPieza;
-                    cout << "Ingresa coordenadas de movimiento: " << endl;
+                    cout << "Ingresa coordenadas de movimiento (mayusc): " << endl;
                     cin >> coordenada;
                     while(!validarEntrada(coordenada)){
                         cout << "Coordenada no válida, ingrese otra";
                         cin >> coordenada;
                     }
-                    int i = -(coordenada.at(2)-48-8);                                     //posInicial
-                    int j = coordenada.at(1)-65;
-
-                    int x = -(coordenada.at(5)-48-8);                                     //posFinal
-                    int y = coordenada.at(4)-65;
+                    i = -(coordenada.at(2)-48-8);                                     //posInicial
+                    j = coordenada.at(1)-65;
+                    x = -(coordenada.at(5)-48-8);                                     //posFinal
+                    y = coordenada.at(4)-65;
                         
                     if(nPieza==1){
                         while(!rey->validarMovimiento(coordenada, tablero)){
                             cout << "El " << "Rey" << " no puede hacer ese movimiento. Ingresa otra coordenada: " << endl;
                             cin >> coordenada;
+                            i = -(coordenada.at(2)-48-8);                                     //posInicial
+                            j = coordenada.at(1)-65;
+                            x = -(coordenada.at(5)-48-8);                                     //posFinal
+                            y = coordenada.at(4)-65;
                         }
                         tablero[i][j] = '.';
                         tablero[x][y] = 'r';
+                        imprimirTablero(8, tablero);
                     } else if(nPieza==2){
                         while(!auxiliar->validarMovimiento(coordenada, tablero)){
                             cout << "El " << nombreAuxiliar << " no puede hacer ese movimiento. Ingresa otra coordenada: " << endl;
                             cin >> coordenada;
+                            i = -(coordenada.at(2)-48-8);                                     //posInicial
+                            j = coordenada.at(1)-65;
+                            x = -(coordenada.at(5)-48-8);                                     //posFinal
+                            y = coordenada.at(4)-65;
                         }
                         tablero[i][j] = '.';
                         tablero[x][y] = nombreAuxiliar.at(0);
+                        imprimirTablero(8, tablero);
                     }
-                    cout << "¿Desea seguir?: ";
+                    cout << "¿Desea seguir? (1. Sí,  0. No): ";
                     cin >> seguir;
                 }
                 
@@ -200,17 +222,22 @@ char** crearTablero(int size){
 void imprimirTablero(int size, char** tablero){
     if(tablero!=NULL){                                                 //SAFE CODE
         for(int i=0; i<size; i++){
+            cout << to_string(8-i) << " ";
             for(int j=0; j<size; j++){
-                cout << std::to_string(tablero[i][j]) +"\t";
+                cout << tablero[i][j] << " ";
             }
             cout << "" << endl;
+            if(i==7){
+                cout << "  A "  << "B " << "C " << "D " <<"E " << "F " << "G "<<"H ";
+            }
         }
+        cout << "" << endl;
     }
 }
 
 bool validarEntrada(string coor){
     bool valido=false;
-    if(coor.at(0)=='[' && coor.at(6)==']' && coor.at(3)==','){
+    if(coor.size()==7 && coor.at(0)=='[' && coor.at(6)==']' && coor.at(3)==','){
         if(coor.at(1)>=65 && coor.at(1)<=72 && coor.at(4)>=65 && coor.at(4)<=72){
             if(coor.at(2)>=49 && coor.at(2)<=57 && coor.at(5)>=49 && coor.at(5)<=57)
                 valido=true;
